@@ -1,8 +1,9 @@
 <template>
     <div>
-        <button @click="fetchData">Fetch Data</button>
+        <v-btn @click="fetchData">Fetch Data</v-btn>
         <div v-if="data">
             <h2>{{data.title}}</h2>
+            
             <p>{{data.Body }}</p>
         </div>
     </div>
