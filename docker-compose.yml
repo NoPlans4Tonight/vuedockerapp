@@ -1,6 +1,10 @@
 version: '3'
 services:
   vuedockerapp:
-    image: vuedockerapp
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    volumes:
+      - .:/app

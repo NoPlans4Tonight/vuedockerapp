@@ -13,5 +13,8 @@ RUN npm install
 # Copy all files from the current directory to the container
 COPY . .
 
-# Specify the command to run when the container starts
-CMD ["npm", "run", "dev"]
+# Expose port 8080 for the Vue.js development server
+EXPOSE 8080
+
+# Start the Vue.js development server with HMR
+CMD ["npm", "run", "serve"]

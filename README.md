@@ -2,6 +2,7 @@
 
 ## Project setup
 ```
+docker build -t vuedockerapp .
 docker-compose build
 docker-compose up -d
 ```
