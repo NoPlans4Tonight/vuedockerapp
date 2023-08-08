@@ -1,9 +1,9 @@
 <template>
-  <v-app>
+  <v-app :dark="darkMode">
     <v-main>
       <v-container>
         <AppNavBar/>
-        <HomePage/>
+        <router-view></router-view>
       </v-container>
     </v-main>
   </v-app>
@@ -12,14 +12,13 @@
 
 <script>
 
-import HomePage from './components/HomePage.vue';
+
 import AppNavBar from './components/AppNavbar.vue';
 
 export default {
   name: 'App',
   components: {
     AppNavBar,
-    HomePage,
   }
 }
 </script>
