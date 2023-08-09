@@ -1,33 +1,54 @@
 <template>
   <v-app-bar>
     <template v-slot:prepend>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
     </template>
+    
     <router-link to="/" class="home-link">
       <div class="app-bar-title-container">
-        <v-icon class="mdi-icon">mdi-crown-circle-outline</v-icon>
         <v-app-bar-title class="home-link">Jonathon Lochan</v-app-bar-title>
       </div>
     </router-link>
     
     <v-spacer></v-spacer>
     
-    <router-link to="/projects" class="home-link">
-      <v-app-bar-title class="home-link">My Projects</v-app-bar-title>
-    </router-link>
+    <v-app-bar-items class="hidden-md-and-down">
+      <router-link to="/projects" class="home-link">
+        <v-app-bar-title class="home-link">My Projects</v-app-bar-title>
+      </router-link>
+      <router-link v-for="(item, index) in items" :key="index" :to="item.to" class="home-link">
+        <v-app-bar-title class="home-link">{{ item.title }}</v-app-bar-title>
+      </router-link>
+    </v-app-bar-items>
   </v-app-bar>
+
+  <v-navigation-drawer v-model="drawer" app>
+    <v-list>
+      <router-link v-for="(item, index) in items" :key="index" :to="item.to">
+        <v-list-item>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
+      </router-link>
+    </v-list>
+  </v-navigation-drawer>
 </template>
 
 <script>
 export default {
-  name: 'AppNavbar',
-  methods: {
-    toggleDrawer() {
-      // Add your logic to open or close a navigation drawer
-    }
+  data() {
+    return {
+      drawer: false,
+      items: [
+        { title: 'My Projects', to: '/projects' },
+        { title: 'Item 1', to: '/item1' },
+        { title: 'Item 2', to: '/item2' },
+        { title: 'Item 3', to: '/item3' },
+        { title: 'Item 4', to: '/item4' },
+        { title: 'Item 5', to: '/item5' }
+      ]
+    };
   }
-}
-
+};
 </script>
 
 <style>
@@ -35,10 +56,10 @@ export default {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  padding: 0 12px;
 }
 
 .home-link:hover {
-  /* text-decoration: underline; */
   background-color: black;
 }
 
