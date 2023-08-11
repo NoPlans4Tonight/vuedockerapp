@@ -11,7 +11,7 @@
     </v-container>
 </template>
 <script>
-import axios from 'axios'
+import axios from '@/axios'
 
 export default {
     data() {
@@ -22,7 +22,7 @@ export default {
     methods: {
         async fetchData() {
             try {
-                const response = await axios.get('http://laraveldockerapp.test/api/home');
+                const response = await axios.get('home');
                 this.data = response.data.data;
                 console.log(response.data.data)
             }
