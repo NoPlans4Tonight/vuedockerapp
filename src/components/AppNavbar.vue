@@ -40,9 +40,9 @@ export default {
       drawer: false,
       items: [
         { title: 'My Projects', to: '/projects' },
-        { title: 'Item 1', to: '/item1' },
-        { title: 'Item 2', to: '/item2' },
-        { title: 'Item 3', to: '/item3' },
+        { title: 'Register', to: '/register' },
+        { title: 'Login', to: '/login' },
+        { title: 'Logout', to: '/logout' },
         { title: 'Item 4', to: '/item4' },
         { title: 'Item 5', to: '/item5' }
       ]
