@@ -49,6 +49,7 @@
   
           if (response.data.status === 1) {
             this.showSnackbar('Login successful.', 'success');
+            this.$router.push('/');
           } else {
             this.showSnackbar('Login failed.', 'error');
           }
